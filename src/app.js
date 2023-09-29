@@ -32,6 +32,8 @@ function displayTemperature(response) {
 	let windElement = document.querySelector("#wind");
 	let humidityElement = document.querySelector("#humidity");
 	let dateElement = document.querySelector("#date");
+	let iconElement = document.querySelector("#icon");
+
 	temperatureElement.innerHTML = Math.round(
 		response.data.temperature.current
 	);
@@ -46,9 +48,18 @@ function displayTemperature(response) {
 	dateElement.innerHTML = formatDate(
 		response.data.time * 1000
 	);
+	iconElement.setAttribute(
+		"src",
+		`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+	);
+	iconElement.setAttribute(
+		"alt",
+		response.data.condition.description
+	);
 }
 
 let apiKey = "fbf3f590d8fa5cdo2b6a6d68f4tc4ef2";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=los+angeles&key=${apiKey}&units=imperial`;
+let city = "los angeles";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
