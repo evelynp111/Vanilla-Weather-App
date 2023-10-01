@@ -22,8 +22,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-	console.log(response.data);
-
 	let cityElement = document.querySelector("#city");
 	let temperatureElement =
 		document.querySelector("#temperature");
@@ -58,8 +56,19 @@ function displayTemperature(response) {
 	);
 }
 
-let apiKey = "fbf3f590d8fa5cdo2b6a6d68f4tc4ef2";
-let city = "los angeles";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+function search(city) {
+	let apiKey = "fbf3f590d8fa5cdo2b6a6d68f4tc4ef2";
+	let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+	axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+	event.preventDefault();
+	let cityInputElement =
+		document.querySelector("#city-input");
+	search(cityInputElement.value);
+}
+search("Los Angeles");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
