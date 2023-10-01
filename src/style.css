@@ -21,6 +21,9 @@ li {
 	font-weight: 100;
 	line-height: 19px;
 }
+a {
+	text-decoration: none;
+}
 li:first-letter {
 	text-transform: capitalize;
 }
@@ -41,6 +44,10 @@ li:first-letter {
 	float: left;
 	height: 64px;
 	width: 64px;
+}
+.weather-temperature .active {
+	color: rgb(135, 135, 135);
+	cursor: default;
 }
 
 .weather-temperature strong {
