@@ -19,6 +19,16 @@
 		<link
 			rel="stylesheet"
 			href="src/style.css" />
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet" />
 	</head>
 	<body>
 		<div class="container">
@@ -28,7 +38,10 @@
 						id="search-form"
 						class="mb-3">
 						<div class="row">
-							<div class="col-9">
+							<div class="col-4">
+								<h1 id="city"></h1>
+							</div>
+							<div class="col-4">
 								<input
 									type="search"
 									placeholder="Type a city name..."
@@ -86,6 +99,7 @@
 							</ul>
 						</div>
 					</div>
+					<div class="col-5 forecast"></div>
 				</div>
 				<small>
 					<a
